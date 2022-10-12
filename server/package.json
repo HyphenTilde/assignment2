@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server to host backend of assignment2",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Server",
+    "Backend"
+  ],
+  "author": "Rawan Yousif",
+  "license": "ISC"
+}
