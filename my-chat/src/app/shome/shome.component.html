@@ -1,0 +1,19 @@
+<html>
+    
+    <h1>Groups</h1>
+    <div *ngFor="let index of group_array">
+        {{index}}
+    </div>
+    <label><b>User Name</b></label>    
+    <input type="text" id="Uname" placeholder="Username" [(ngModel)]="user.username" name="user.username">
+    <br><br>    
+    <label><b>Password</b></label>    
+    <input type="text" id="Email" placeholder="Email" [(ngModel)]="user.password" name="user.password">    
+    <br><br>
+    <label><b>Email</b></label>    
+    <input type="text" id="Email" placeholder="Email" [(ngModel)]="user.email" name="user.email">    
+    <br><br>
+    <input type="button" name="createuser" id="createuser" value="Create User" (click)="supercreate(user)">
+    <input type="button" name="removeuser" id="removeuser" value="Remove User" (click)="superremove(user)">
+    <input type="button" name="upgradeuser" id="upgradeuser" value="Upgrade User" (click)="superupgrade(user)">
+</html>

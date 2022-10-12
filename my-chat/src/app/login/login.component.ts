@@ -25,7 +25,15 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('password',data.userdata[0].password);
         localStorage.setItem('email',data.userdata[0].email);
         localStorage.setItem('role',data.userdata[0].role);
-        this.router.navigateByUrl('home');
+        if(data.userdata[0].role == "User"){
+          this.router.navigateByUrl('home');
+        }else if (data.userdata[0].role == "Super Admin"){
+          this.router.navigateByUrl('shome');
+        }else if (data.userdata[0].role == "Group Admin"){
+          this.router.navigateByUrl('ghome');
+        }else if (data.userdata[0].role == "Group Assis"){
+          this.router.navigateByUrl('gahome');
+        }
       }else{
         console.log(data.err);
       }

@@ -22,6 +22,9 @@ MongoClient.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, func
     const col1 = db.collection('groups');
     require('./routes/api-login.js')(db, app);
     require('./routes/api-collect.js')(db, app);
+    require('./routes/api-screate.js')(db, app);
+    require('./routes/api-sremove.js')(db, app);
+    require('./routes/api-supgrade.js')(db, app);
 
     app.listen(3000, ()=>{
         console.log("Server is listening on port 3000");

@@ -17,4 +17,13 @@ export class LinksService {
   collect(id: sender){
     return this.http.post<any>(backendurl + '/api/collect', id);
   }
+  screate(user: User){
+    return this.http.post<any>(backendurl + '/api/screate', user);
+  }
+  sremove(user: User){
+    return this.http.post<any>(backendurl + '/api/sremove', user);
+  }
+  supgrade(user: User){
+    return this.http.post<any>(backendurl + '/api/supgrade', user);
+  }
 }
