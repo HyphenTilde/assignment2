@@ -1,0 +1,21 @@
+<!DOCTYPE html>    
+<html>    
+<head>    
+    <title>Login Form</title>    
+    <link rel="stylesheet" type="text/css" href="login.component.css">    
+</head>    
+<body>    
+    <h2>Login Page</h2><br>    
+    <div class="login">    
+    <form id="login" method="get" action="login.php">    
+        <label><b>Username</b></label>    
+        <input type="text" id="Uname" placeholder="Username" [(ngModel)]="user.username" name="user.username">
+        <br><br>    
+        <label><b>Password</b></label>    
+        <input type="text" id="Password" placeholder="Password" [(ngModel)]="user.password" name="user.password">    
+        <br><br>    
+        <input type="button" name="log" id="log" value="Log In Here" (click)="LogIn(user)">
+    </form>     
+</div>    
+</body>    
+</html>  
