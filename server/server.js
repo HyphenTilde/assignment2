@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 var path = require('path');
+const io = require('socket.io')(http, {cors:{origin:"http://localhost:4200", methods: ["GET", "POST"],}});
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const MongoClient = require('mongodb').MongoClient;
@@ -34,9 +35,16 @@ MongoClient.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, func
     require('./routes/api-removegroup.js')(db, app);
     require('./routes/api-removechannel.js')(db, app);
 
+
+    io.on('connection', (socket)=>{
+        console.log('user connection on port 3000:' + socket.id);
+        socket.on('message', (message)=>{
+            io.emit('message', message);
+        })
+    });
     app.listen(3000, ()=>{
         console.log("Server is listening on port 3000");
-    })
+    });
     app.get('/*',function(req,res,next){
         res.sendFile('index.html',{ root:'../my-chat/dist/my-chat' });
     });
