@@ -3,6 +3,11 @@
     <h1>Groups</h1>
     <div *ngFor="let index of group_array">
         {{index}}
+        <div *ngFor="let in2 of channel_array">
+            <div *ngIf="in2.group == index">
+                <pre>{{in2.name}}</pre>
+            </div>
+        </div>
     </div>
     <label><b>User Name</b></label>    
     <input type="text" id="Uname" placeholder="Username" [(ngModel)]="user.username" name="user.username">
@@ -13,7 +18,20 @@
     <label><b>Email</b></label>    
     <input type="text" id="Email" placeholder="Email" [(ngModel)]="user.email" name="user.email">    
     <br><br>
+    <label><b>Group Name</b></label>    
+    <input type="text" id="GroupName" placeholder="Group Name" [(ngModel)]="user.group" name="user.group">    
+    <br><br>
+    <label><b>Channel Name</b></label>    
+    <input type="text" id="ChannelName" placeholder="Channel Name" [(ngModel)]="user.channel" name="user.channel">    
+    <br><br>
     <input type="button" name="createuser" id="createuser" value="Create User" (click)="supercreate(user)">
     <input type="button" name="removeuser" id="removeuser" value="Remove User" (click)="superremove(user)">
     <input type="button" name="upgradeuser" id="upgradeuser" value="Upgrade User" (click)="superupgrade(user)">
+    <input type="button" name="creategroup" id="creategroup" value="Create Group" (click)="groupcreate(user)">
+    <input type="button" name="addusertogroup" id="addusertogroup" value="Add user to Group" (click)="addusertogroup(user)">
+    <input type="button" name="createchannel" id="createchannel" value="Create Channel" (click)="channelcreate(user)">
+    <input type="button" name="addusertochannel" id="addusertochannel" value="Add user to Channel" (click)="addusertochannel(user)">
+    <input type="button" name="removegroup" id="removegroup" value="Remove Group" (click)="removegroup(user)">
+    <input type="button" name="removechannel" id="removechannel" value="Remove Channel" (click)="removechannel(user)">
+    
 </html>

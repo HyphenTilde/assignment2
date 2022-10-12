@@ -20,11 +20,19 @@ MongoClient.connect(url, {useNewUrlParser: true, useUnifiedTopology: true}, func
     const dbName = 'backdb';
     const db = client.db(dbName);
     const col1 = db.collection('groups');
+
     require('./routes/api-login.js')(db, app);
     require('./routes/api-collect.js')(db, app);
     require('./routes/api-screate.js')(db, app);
     require('./routes/api-sremove.js')(db, app);
     require('./routes/api-supgrade.js')(db, app);
+    require('./routes/api-cgroup.js')(db, app);
+    require('./routes/api-addtogroup.js')(db, app);
+    require('./routes/api-cchannel.js')(db, app);
+    require('./routes/api-ccollect.js')(db, app);
+    require('./routes/api-addtochannel.js')(db, app);
+    require('./routes/api-removegroup.js')(db, app);
+    require('./routes/api-removechannel.js')(db, app);
 
     app.listen(3000, ()=>{
         console.log("Server is listening on port 3000");

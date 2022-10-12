@@ -10,7 +10,7 @@ import { User } from '../user_model';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  user: User = {username:'', password:'', email:'', role:''};
+  user: User = {username:'', password:'', email:'', role:'', group: '', channel: ''};
   constructor(private link:LinksService, private router: Router) { }
 
   ngOnInit(): void {

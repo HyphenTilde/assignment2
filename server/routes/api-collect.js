@@ -6,6 +6,7 @@ module.exports = function(db, app){
             return res.sendStatus(400);
         }
         let id = req.body.send;
+        console.log(id);
         const collection = db.collection('groups');
         collection.find({'user_ids': [id]}).toArray((err, data)=>{
             console.log(data);
