@@ -12,12 +12,10 @@ export class User {
     }
 }
 
-export class checker {
-    check: BigInt;
-    err:string;
+export class sender {
+    send: string;
 
-    constructor(check:BigInt, err: string){
-        this.check=check;
-        this.err=err;
+    constructor(send:string){
+        this.send=send
     }
 }

@@ -12,10 +12,13 @@ module.exports = function(db, app){
         collection.find({'username': u, 'password': p}).count((err, count)=>{
             if(count==0){
                 //not found in database, sends error message
-                res.send({check: 0, err: "User not found"});
+                res.send({check: 0, err: "User not found", userdata: {}});
             }else{
                 //user is found in database and thus, confirmation is sent back
-                res.send({check: 1, err: NULL});
+                collection.find({'username': u, 'password': p}).toArray().then(function(docs){
+                    console.log(docs);
+                    res.send({check: 1, err: "", userdata: docs});
+                })
             }
         })
     })

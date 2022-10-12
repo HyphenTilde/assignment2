@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { User } from './user_model';
+import { User, sender } from './user_model';
 
 const backendurl = 'http://localhost:3000';
 @Injectable({
@@ -13,5 +13,8 @@ export class LinksService {
 
   login(user: User){
     return this.http.post<any>(backendurl + '/api/login', user);
+  }
+  collect(id: sender){
+    return this.http.post<any>(backendurl + '/api/collect', id);
   }
 }
